@@ -1,0 +1,26 @@
+[
+  {
+    "id": "hidrasi-lebih-baik",
+    "icon": "droplet",
+    "title": "Hidrasi Lebih Baik",
+    "description": "Air dengan kualitas premium, diproses dengan standar tertinggi untuk hidrasi yang optimal."
+  },
+  {
+    "id": "move-better",
+    "icon": "bolt",
+    "title": "Move Better",
+    "description": "Dukung gaya hidup aktifmu dengan hidrasi yang tepat di setiap aktivitas."
+  },
+  {
+    "id": "live-happier",
+    "icon": "heart",
+    "title": "Live Happier",
+    "description": "Jadikan momen minum air sebagai bagian dari kebahagiaan harianmu."
+  },
+  {
+    "id": "pelayanan-prima",
+    "icon": "check",
+    "title": "Pelayanan Prima",
+    "description": "Pengantaran setiap hari ke seluruh Batam, dengan layanan yang selalu bisa diandalkan."
+  }
+]

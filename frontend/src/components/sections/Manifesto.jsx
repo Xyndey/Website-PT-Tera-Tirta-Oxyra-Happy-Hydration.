@@ -1,0 +1,73 @@
+import React from 'react';
+
+export default function Manifesto() {
+  return (
+    <section id="manifesto" className="sec">
+      <div className="hex-bg" />
+      <svg
+        className="mol-node"
+        style={{ top: '20%', right: '10%', width: 120, height: 120 }}
+        viewBox="0 0 100 100"
+      >
+        <polygon
+          points="50,5 90,27 90,73 50,95 10,73 10,27"
+          fill="none"
+          stroke="#FF1493"
+          strokeWidth="2"
+          strokeDasharray="6 4"
+        />
+        <circle cx="50" cy="50" r="12" fill="none" stroke="#35c4e8" strokeWidth="2" />
+        <text x="50" y="54" fontSize="10" fontFamily="monospace" fill="#FF1493" textAnchor="middle" fontWeight="bold">
+          OXY
+        </text>
+      </svg>
+      <div className="floating-droplet" style={{ left: '12%', top: '60%', animationDelay: '3.4s' }} />
+
+      <div className="inner-sm">
+        <div className="rv">
+          <span className="sec-chip">01</span>
+          <span className="sec-kicker">Brand Manifesto</span>
+          <h2 className="sec-title">
+            Every Drop Has a <em>Purpose.</em>
+          </h2>
+          <div className="sec-bar" />
+        </div>
+
+        <div className="mani-row rv">
+          <div className="mani-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z" />
+            </svg>
+          </div>
+          <p>Satu tegukan.</p>
+        </div>
+        <div className="mani-row rv">
+          <div className="mani-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9z" />
+            </svg>
+          </div>
+          <p>Satu langkah.</p>
+        </div>
+        <div className="mani-row rv">
+          <div className="mani-icon">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M8 14s1.5 2 4 2 4-2" />
+              <line x1="9" y1="9" x2="9.01" y2="9" />
+              <line x1="15" y1="9" x2="15.01" y2="9" />
+            </svg>
+          </div>
+          <p>Satu senyuman.</p>
+        </div>
+
+        <div className="quote-card rv">
+          Kami tidak hanya menjual air minum. Kami sedang membangun budaya baru — budaya Happy
+          Hydration, di mana setiap tetes air menjadi awal dari energi positif, gaya hidup aktif,
+          dan hari yang lebih bahagia.
+          <div className="heart">♥</div>
+        </div>
+      </div>
+    </section>
+  );
+}

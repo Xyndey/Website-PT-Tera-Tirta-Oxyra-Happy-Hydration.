@@ -1,0 +1,59 @@
+{
+  "heroImage": "https://i.imgur.com/skZCgCT.jpeg",
+  "heroBadge": "✨ Stay Oxy, Stay Happy",
+  "intro": "Komunitas untuk kamu yang ingin hidup aktif, seimbang, dan penuh energi positif setiap hari.",
+  "activities": [
+    {
+      "id": "running",
+      "emoji": "🏃",
+      "title": "Running",
+      "description": "Setiap langkah, lebih berenergi dan ringan dengan hidrasi heksagonal yang tepat."
+    },
+    {
+      "id": "gym-fitness",
+      "emoji": "🏋️",
+      "title": "Gym / Fitness",
+      "description": "Dukung performa terbaikmu di setiap sesi latihan dengan mineral seimbang."
+    },
+    {
+      "id": "cycling",
+      "emoji": "🚴",
+      "title": "Cycling",
+      "description": "Jaga stamina dan fokus optimal di setiap rute perjalanan panjangmu."
+    },
+    {
+      "id": "office-kerja",
+      "emoji": "💼",
+      "title": "Office / Kerja",
+      "description": "Tetap segar, fokus, dan produktif sepanjang hari kerja di kantor."
+    },
+    {
+      "id": "family",
+      "emoji": "👨‍👩‍👧",
+      "title": "Family",
+      "description": "Hidrasi berkualitas terbaik dan terjamin untuk keluarga yang kamu sayangi."
+    }
+  ],
+  "benefits": [
+    {
+      "id": "event-eksklusif",
+      "title": "🎁 Event Eksklusif",
+      "description": "Ikuti event seru bersama komunitas"
+    },
+    {
+      "id": "tips-edukasi",
+      "title": "💡 Tips & Edukasi",
+      "description": "Edukasi hidrasi & gaya hidup dari ahli"
+    },
+    {
+      "id": "komunitas-positif",
+      "title": "🤝 Komunitas Positif",
+      "description": "Bertemu teman baru berenergi positif"
+    },
+    {
+      "id": "promo-spesial",
+      "title": "🏷️ Promo Spesial",
+      "description": "Keuntungan & diskon khusus member"
+    }
+  ]
+}

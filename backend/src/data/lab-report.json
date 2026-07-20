@@ -1,0 +1,20 @@
+{
+  "isIllustrative": true,
+  "batch": "OXA-2026-XXXX",
+  "testDate": "XX/XX/2026",
+  "laboratory": "Lab Terakreditasi",
+  "metrics": [
+    { "label": "pH", "value": "8,6" },
+    { "label": "TDS", "value": "148 mg/L" },
+    { "label": "Kalsium (Ca)", "value": "XX mg/L" },
+    { "label": "Magnesium (Mg)", "value": "XX mg/L" },
+    { "label": "Kalium (K)", "value": "XX mg/L" },
+    { "label": "Natrium (Na)", "value": "XX mg/L" },
+    { "label": "E. coli", "value": "NEGATIF", "highlight": true },
+    { "label": "Coliform", "value": "NEGATIF", "highlight": true }
+  ],
+  "bpom": "MD [NOMOR]",
+  "halalBpjph": "[NOMOR]",
+  "footNote": "Semua data di atas bersifat ilustrasi dan akan diganti setelah laporan laboratorium resmi diterima.",
+  "disclaimer": "Angka-angka di atas adalah placeholder. Data resmi menyusul dari laporan lab."
+}

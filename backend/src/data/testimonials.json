@@ -1,0 +1,23 @@
+[
+  {
+    "id": "testi-keluarga-hendra",
+    "rating": 5,
+    "quote": "OXYRA selalu jadi pilihan utama keluarga kami. Airnya terasa lebih segar, bersih, dan ringan di tenggorokan. Anak-anak jadi lebih rajin minum air putih!",
+    "author": "Keluarga Hendra",
+    "location": "Batam Centre"
+  },
+  {
+    "id": "testi-rina-s",
+    "rating": 5,
+    "quote": "Setelah rutin minum Oxyra Alkaline dan Hexagonal Oxygen, stamina saat lari pagi dan gym jauh lebih terjaga. Kemasan botol 500ml juga praktis banget dibawa kemana-mana.",
+    "author": "Rina S.",
+    "location": "Happy Hydration Member"
+  },
+  {
+    "id": "testi-budi-hartono",
+    "rating": 5,
+    "quote": "Pelayanan pengantarannya selalu tepat waktu setiap hari ke kantor kami di Nagoya. Kurir ramah dan kualitas galon selalu bersih dan higienis.",
+    "author": "Budi Hartono",
+    "location": "Nagoya, Batam"
+  }
+]
