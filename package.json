@@ -20,6 +20,7 @@
     "format": "prettier --write \"**/*.{js,ts,html,json,md,css}\""
   },
   "devDependencies": {
+    "@angular/cli": "^21.2.19",
     "prettier": "^3.3.3"
   },
   "engines": {
