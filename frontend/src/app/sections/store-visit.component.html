@@ -1,0 +1,40 @@
+<section id="toko" class="sec store-visit-sec">
+  <div class="floating-droplet" style="left: 8%; top: 18%; animation-delay: 2.6s;"></div>
+
+  <div class="inner store-visit-inner">
+    <div class="store-visit-copy rv">
+      <span class="sec-chip">08</span>
+      <span class="sec-kicker">Kunjungi Toko</span>
+      <h2 class="sec-title">Toko Fisik Kami di <em>Batam</em></h2>
+      <div class="sec-bar"></div>
+      <p class="store-visit-text" *ngIf="i18n.language() === 'id'">
+        Mampir langsung ke gerai kami untuk melihat semua varian, ambil galon segar di tempat, atau
+        sekadar menyapa. Kami mengisi ulang langsung di lokasi dan senang bertemu komunitas Happy
+        Hydration secara langsung.
+      </p>
+      <p class="store-visit-text" *ngIf="i18n.language() === 'en'">
+        Drop by our physical outlet to see the full lineup, pick up a fresh gallon on the spot, or
+        just say hi. We refill on-site and love meeting our Happy Hydration community in person.
+      </p>
+      <p class="store-visit-area">📍 {{ brand.serviceArea }}</p>
+
+      <div class="store-visit-actions">
+        <a [href]="mapsUrl" target="_blank" rel="noopener noreferrer" class="cta-btn">
+          {{ i18n.language() === 'en' ? 'Open in Google Maps' : 'Buka di Google Maps' }}
+        </a>
+        <a [href]="brand.whatsapp.link" target="_blank" rel="noopener noreferrer" class="cta-link">
+          {{ i18n.language() === 'en' ? 'Ask us on WhatsApp →' : 'Tanya lewat WhatsApp →' }}
+        </a>
+      </div>
+    </div>
+
+    <div class="store-visit-photo rv">
+      <img
+        src="/images/store/oxyra-storefront.jpg"
+        alt="Gerai OXYRA di Batam — tampak depan toko dengan signage merah muda"
+        loading="lazy"
+      />
+      <span class="store-visit-badge">Soft Launching 🎉</span>
+    </div>
+  </div>
+</section>

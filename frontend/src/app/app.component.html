@@ -1,0 +1,25 @@
+<app-navbar [brand]="brand()" (openCart)="openCart()"></app-navbar>
+<app-instruments [temperature]="scrollPhysics.temperature()" [gaugePercent]="scrollPhysics.gaugePercent()"></app-instruments>
+<app-snap-dots [activeSection]="scrollPhysics.activeSection()" [visible]="scrollPhysics.dotsVisible()"></app-snap-dots>
+
+<main>
+  <app-hot></app-hot>
+  <app-dry></app-dry>
+  <app-turn></app-turn>
+  <app-relief [crystallized]="scrollPhysics.crystallized()"></app-relief>
+  <app-manifesto></app-manifesto>
+  <app-why-oxyra></app-why-oxyra>
+  <app-products></app-products>
+  <app-club></app-club>
+  <app-store-visit [brand]="brand()"></app-store-visit>
+  <app-testimonials></app-testimonials>
+  <app-lab-report></app-lab-report>
+  <app-delivery [brand]="brand()"></app-delivery>
+  <app-closing></app-closing>
+</main>
+
+<app-footer [brand]="brand()"></app-footer>
+
+<app-cart-drawer [open]="cartOpen()" (closeDrawer)="closeCart()" (checkout)="openCheckout()"></app-cart-drawer>
+<app-checkout-modal [open]="checkoutOpen()" (closeModal)="closeCheckout()"></app-checkout-modal>
+<app-toast-stack></app-toast-stack>

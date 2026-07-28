@@ -1,30 +1,43 @@
 {
-  "name": "oxyra-frontend",
+  "name": "oxyra-frontend-angular",
   "version": "1.0.0",
   "private": true,
-  "description": "OXYRA — Happy Hydration Era. React + Vite storefront/landing page consuming the OXYRA backend API.",
-  "type": "module",
+  "description": "OXYRA — Happy Hydration Era. Angular storefront consuming the OXYRA Node.js backend API.",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview --port 4173",
-    "lint": "eslint . --ext .js,.jsx --report-unused-disable-directives --max-warnings 0"
+    "ng": "ng",
+    "start": "ng serve",
+    "dev": "ng serve --open",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"
   },
   "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "@angular/animations": "^18.2.0",
+    "@angular/common": "^18.2.0",
+    "@angular/compiler": "^18.2.0",
+    "@angular/core": "^18.2.0",
+    "@angular/forms": "^18.2.0",
+    "@angular/platform-browser": "^18.2.0",
+    "@angular/platform-browser-dynamic": "^18.2.0",
+    "@angular/router": "^18.2.0",
+    "rxjs": "^7.8.1",
+    "tslib": "^2.6.3",
+    "zone.js": "^0.14.10"
   },
   "devDependencies": {
-    "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0",
-    "@vitejs/plugin-react": "^4.3.1",
-    "eslint": "^8.57.0",
-    "eslint-plugin-react": "^7.35.0",
-    "eslint-plugin-react-hooks": "^4.6.2",
-    "eslint-plugin-react-refresh": "^0.4.9",
-    "vite": "^5.4.1"
+    "@angular-devkit/build-angular": "^18.2.0",
+    "@angular/cli": "^18.2.0",
+    "@angular/compiler-cli": "^18.2.0",
+    "@types/jasmine": "^5.1.4",
+    "jasmine-core": "^5.2.0",
+    "karma": "^6.4.4",
+    "karma-chrome-launcher": "^3.2.0",
+    "karma-coverage": "^2.2.1",
+    "karma-jasmine": "^5.1.0",
+    "karma-jasmine-html-reporter": "^2.1.0",
+    "typescript": "~5.5.4"
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=18.19.0"
   }
 }

@@ -21,7 +21,7 @@ const config = {
   isProduction: process.env.NODE_ENV === 'production',
 
   cors: {
-    origins: parseList(process.env.CORS_ORIGIN) || ['http://localhost:5173'],
+    origins: parseList(process.env.CORS_ORIGIN) || ['http://localhost:4200'],
   },
 
   brand: {

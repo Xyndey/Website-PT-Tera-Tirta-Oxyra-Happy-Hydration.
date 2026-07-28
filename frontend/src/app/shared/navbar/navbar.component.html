@@ -1,0 +1,62 @@
+<nav class="navbar">
+  <a href="#hot" class="nav-brand">
+    <img [src]="brand.logoUrl" alt="OXYRA" class="nav-logo-img" />
+    <span class="nav-brand-text">{{ brand.name }}</span>
+  </a>
+
+  <ul class="nav-links">
+    <li *ngFor="let link of navLinks">
+      <a [href]="link.href">{{ i18n.t(link.key) }}</a>
+    </li>
+  </ul>
+
+  <div class="nav-actions">
+    <button
+      type="button"
+      class="theme-toggle-btn"
+      (click)="i18n.toggleLanguage()"
+      aria-label="Ganti bahasa"
+      [title]="i18n.language() === 'id' ? 'Switch to English' : 'Ganti ke Bahasa Indonesia'"
+    >
+      {{ i18n.language() === 'id' ? '🇮🇩' : '🇬🇧' }}
+    </button>
+
+    <button
+      type="button"
+      class="theme-toggle-btn"
+      (click)="themeService.toggleTheme()"
+      [attr.aria-label]="themeService.theme() === 'dark' ? i18n.t('theme.light') : i18n.t('theme.dark')"
+      [title]="themeService.theme() === 'dark' ? i18n.t('theme.light') : i18n.t('theme.dark')"
+    >
+      {{ themeService.theme() === 'dark' ? '☀️' : '🌙' }}
+    </button>
+
+    <button type="button" class="cart-nav-btn" (click)="openCart.emit()" [attr.aria-label]="i18n.t('cart.title')">
+      🛒
+      <span class="cart-nav-badge" *ngIf="cart.totalItems() > 0">{{ cart.totalItems() }}</span>
+    </button>
+
+    <a [href]="brand.whatsapp.link" class="nav-cta" target="_blank" rel="noopener noreferrer">
+      {{ i18n.t('nav.orderWa') }}
+    </a>
+
+    <button
+      type="button"
+      class="nav-hamburger"
+      [class.is-open]="mobileOpen()"
+      (click)="toggleMobileMenu()"
+      aria-label="Buka menu"
+      [attr.aria-expanded]="mobileOpen()"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <div class="nav-links-mobile" [class.is-open]="mobileOpen()">
+    <a *ngFor="let link of navLinks" [href]="link.href" (click)="closeMobileMenu()">
+      {{ i18n.t(link.key) }}
+    </a>
+  </div>
+</nav>

@@ -2,7 +2,7 @@
   "name": "oxyra-happy-hydration-era",
   "version": "1.0.0",
   "private": true,
-  "description": "OXYRA — Happy Hydration Era. Monorepo (frontend + backend) untuk landing page & layanan pengantaran air minum OXYRA di Batam, Indonesia.",
+  "description": "OXYRA — Happy Hydration Era. Monorepo (frontend Angular + backend Node.js/Express) untuk landing page & layanan pengantaran air minum OXYRA di Batam, Indonesia.",
   "author": "OXYRA Team",
   "license": "MIT",
   "workspaces": [
@@ -17,13 +17,12 @@
     "build": "npm run build --workspace=frontend",
     "start": "npm run start --workspace=backend",
     "test": "npm run test --workspace=backend",
-    "lint": "npm run lint --workspace=frontend",
-    "format": "prettier --write \"**/*.{js,jsx,json,md,css}\""
+    "format": "prettier --write \"**/*.{js,ts,html,json,md,css}\""
   },
   "devDependencies": {
     "prettier": "^3.3.3"
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=18.19.0"
   }
 }

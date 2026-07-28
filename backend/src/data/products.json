@@ -9,7 +9,8 @@
     "price": 10000,
     "priceLabel": "Rp 10.000",
     "unit": "/ galon",
-    "description": "Air mineral murni yang segar untuk memenuhi kebutuhan hidrasi harian keluarga."
+    "description": "Air mineral murni yang segar untuk memenuhi kebutuhan hidrasi harian keluarga.",
+    "image": "/images/products/galon-aqua.jpg"
   },
   {
     "id": "refill-hexagonal-oxygen-19l",
@@ -21,7 +22,8 @@
     "price": 15000,
     "priceLabel": "Rp 15.000",
     "unit": "/ galon",
-    "description": "Kaya oksigen dengan struktur molekul heksagonal untuk penyerapan nutrisi dan hidrasi yang optimal."
+    "description": "Kaya oksigen dengan struktur molekul heksagonal untuk penyerapan nutrisi dan hidrasi yang optimal.",
+    "image": "/images/products/galon-oxyra.jpg"
   },
   {
     "id": "refill-alkaline-19l",
@@ -33,7 +35,8 @@
     "price": 25000,
     "priceLabel": "Rp 25.000",
     "unit": "/ galon",
-    "description": "pH basa seimbang yang membantu menetralkan keasaman tubuh dan memulihkan energi setelah beraktivitas."
+    "description": "pH basa seimbang yang membantu menetralkan keasaman tubuh dan memulihkan energi setelah beraktivitas.",
+    "image": "/images/products/galon-sanford.jpg"
   },
   {
     "id": "refill-terahertz-19l",
@@ -45,7 +48,8 @@
     "price": 50000,
     "priceLabel": "Rp 50.000",
     "unit": "/ galon",
-    "description": "Teknologi resonansi Terahertz terdepan (Oxy + Alkaline + Tera) untuk vitalitas dan hidrasi tingkat seluler."
+    "description": "Teknologi resonansi Terahertz terdepan (Oxy + Alkaline + Tera) untuk vitalitas dan hidrasi tingkat seluler.",
+    "image": "/images/products/galon-oxyra.jpg"
   },
   {
     "id": "paket-hexagonal-oxygen-galon",
@@ -57,7 +61,8 @@
     "price": 60000,
     "priceLabel": "Rp 60.000",
     "unit": "/ paket",
-    "description": "Paket lengkap galon baru OXYRA yang higienis beserta isi air Hexagonal Oxygen siap minum."
+    "description": "Paket lengkap galon baru OXYRA yang higienis beserta isi air Hexagonal Oxygen siap minum.",
+    "image": "/images/products/galon-oxyra.jpg"
   },
   {
     "id": "paket-alkaline-galon",
@@ -69,7 +74,8 @@
     "price": 65000,
     "priceLabel": "Rp 65.000",
     "unit": "/ paket",
-    "description": "Paket lengkap galon baru OXYRA beserta isi air Alkaline berkualitas tinggi untuk memulai hidup sehat."
+    "description": "Paket lengkap galon baru OXYRA beserta isi air Alkaline berkualitas tinggi untuk memulai hidup sehat.",
+    "image": "/images/products/galon-sanford.jpg"
   },
   {
     "id": "paket-terahertz-galon",
@@ -81,7 +87,8 @@
     "price": 70000,
     "priceLabel": "Rp 70.000",
     "unit": "/ paket",
-    "description": "Paket galon baru dengan air Terahertz ultra-premium untuk pengalaman minum air terbaik."
+    "description": "Paket galon baru dengan air Terahertz ultra-premium untuk pengalaman minum air terbaik.",
+    "image": "/images/products/galon-oxyra.jpg"
   },
   {
     "id": "mini-alkaline-5l",
@@ -93,7 +100,8 @@
     "price": 35000,
     "priceLabel": "Rp 35.000",
     "unit": "/ galon",
-    "description": "Ukuran kompak 5 liter yang praktis dan higienis. Sangat cocok untuk apartemen, kamar pribadi, atau meja kerja."
+    "description": "Ukuran kompak 5 liter yang praktis dan higienis. Sangat cocok untuk apartemen, kamar pribadi, atau meja kerja.",
+    "image": null
   },
   {
     "id": "amdk-alkaline-330ml",
@@ -105,7 +113,8 @@
     "price": 60000,
     "priceLabel": "Rp 60.000",
     "unit": "/ dus",
-    "description": "Botol ukuran pas untuk acara seminar, rapat kantor, bekal perjalanan, dan hidrasi cepat di mana saja."
+    "description": "Botol ukuran pas untuk acara seminar, rapat kantor, bekal perjalanan, dan hidrasi cepat di mana saja.",
+    "image": "/images/products/botol-oxyra-gallery.jpg"
   },
   {
     "id": "amdk-alkaline-500ml",
@@ -117,7 +126,8 @@
     "price": 75000,
     "priceLabel": "Rp 75.000",
     "unit": "/ dus",
-    "description": "Ukuran ideal untuk menemani aktivitas olahraga, gym, lari, bersepeda, maupun aktivitas dinamis lainnya."
+    "description": "Ukuran ideal untuk menemani aktivitas olahraga, gym, lari, bersepeda, maupun aktivitas dinamis lainnya.",
+    "image": "/images/products/botol-oxyra-gallery.jpg"
   },
   {
     "id": "amdk-alkaline-1000ml",
@@ -129,6 +139,7 @@
     "price": 100000,
     "priceLabel": "Rp 100.000",
     "unit": "/ dus",
-    "description": "Kapasitas maksimal 1 liter untuk stok hidrasi harian premium."
+    "description": "Kapasitas maksimal 1 liter untuk stok hidrasi harian premium.",
+    "image": "/images/products/botol-oxyra-gallery.jpg"
   }
 ]

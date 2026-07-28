@@ -1,0 +1,40 @@
+<section id="bukti" class="sec">
+  <div class="floating-droplet" style="left: 18%; top: 30%; animation-delay: 1.1s;"></div>
+  <div class="inner">
+    <div class="rv">
+      <span class="sec-chip">06</span>
+      <span class="sec-kicker">Kualitas Teruji</span>
+      <h2 class="sec-title">Bukti, bukan <em>janji.</em></h2>
+      <div class="sec-bar"></div>
+    </div>
+
+    <p class="section-loading" *ngIf="status() === 'loading'">Memuat laporan uji lab…</p>
+    <p class="section-error" *ngIf="status() === 'error'">Gagal memuat laporan. Silakan segarkan halaman.</p>
+
+    <ng-container *ngIf="status() === 'ready' && report() as r">
+      <div class="receipt rv">
+        <div class="receipt-header">
+          <b>OXYRA</b>
+          <br />
+          <span class="receipt-subtitle">Laporan Uji Laboratorium</span>
+        </div>
+        <div class="meta-row"><span>Batch</span><span>{{ r.batch }}</span></div>
+        <div class="meta-row"><span>Tanggal Uji</span><span>{{ r.testDate }}</span></div>
+        <div class="meta-row"><span>Laboratorium</span><span>{{ r.laboratory }}</span></div>
+        <table>
+          <tbody>
+            <tr *ngFor="let metric of r.metrics">
+              <td>{{ metric.label }}</td>
+              <td [class.neg]="metric.highlight">{{ metric.value }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="meta-row"><span>BPOM</span><span>{{ r.bpom }}</span></div>
+        <div class="meta-row"><span>Halal BPJPH</span><span>{{ r.halalBpjph }}</span></div>
+        <div class="foot-note">{{ r.footNote }}</div>
+        <div class="stamp-mark" *ngIf="r.isIllustrative">ILUSTRASI</div>
+      </div>
+      <p class="disclaimer-note">{{ r.disclaimer }}</p>
+    </ng-container>
+  </div>
+</section>

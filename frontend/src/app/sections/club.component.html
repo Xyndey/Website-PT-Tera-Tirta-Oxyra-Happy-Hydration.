@@ -1,0 +1,41 @@
+<section id="club" class="sec">
+  <div class="speed-lines" aria-hidden="true"></div>
+  <div class="floating-droplet" style="left: 15%; top: 25%; animation-delay: 1.5s;"></div>
+  <div class="floating-droplet" style="right: 18%; bottom: 10%; width: 18px; height: 22px; animation-delay: 3.8s;"></div>
+
+  <div class="inner">
+    <div class="rv">
+      <span class="sec-chip">04</span>
+      <span class="sec-kicker">Happy Hydration Club</span>
+      <h2 class="sec-title">Every Drop. <em>Every Move.</em></h2>
+      <div class="sec-bar"></div>
+    </div>
+
+    <app-skeleton-card *ngIf="status() === 'loading'" [count]="5" variant="product"></app-skeleton-card>
+    <p class="section-error" *ngIf="status() === 'error'">Gagal memuat konten. Silakan segarkan halaman.</p>
+
+    <ng-container *ngIf="status() === 'ready' && club() as c">
+      <div class="club-hero rv">
+        <img [src]="c.heroImage" alt="OXYRA Happy Hydration Club Lifestyle" loading="lazy" />
+        <div class="club-hero-badge">{{ c.heroBadge }}</div>
+      </div>
+
+      <p class="club-intro rv">{{ c.intro }}</p>
+
+      <div class="activity-grid">
+        <div class="act-card rv" *ngFor="let activity of c.activities">
+          <span class="act-emoji">{{ activity.emoji }}</span>
+          <h3>{{ activity.title }}</h3>
+          <p>{{ activity.description }}</p>
+        </div>
+      </div>
+
+      <div class="benefits-strip rv">
+        <div class="ben-pill" *ngFor="let benefit of c.benefits">
+          <b>{{ benefit.title }}</b>
+          <span>{{ benefit.description }}</span>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</section>

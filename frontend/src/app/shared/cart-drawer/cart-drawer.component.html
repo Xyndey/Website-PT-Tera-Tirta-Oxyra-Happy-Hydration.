@@ -1,0 +1,60 @@
+<div
+  class="cart-drawer-overlay cart-drawer-overlay--end"
+  [class.is-open]="open"
+  (click)="closeDrawer.emit()"
+  [attr.aria-hidden]="!open"
+>
+  <aside class="cart-drawer" (click)="$event.stopPropagation()" role="dialog" [attr.aria-label]="i18n.t('cart.title')">
+    <div class="cart-drawer-header">
+      <h2>{{ i18n.t('cart.title') }}</h2>
+      <button type="button" class="cart-drawer-close" (click)="closeDrawer.emit()" aria-label="Tutup keranjang">
+        ✕
+      </button>
+    </div>
+
+    <div class="cart-empty" *ngIf="cart.items().length === 0">
+      <span class="cart-empty-icon" aria-hidden="true">🧺</span>
+      <p>{{ i18n.t('cart.empty') }}</p>
+    </div>
+
+    <ng-container *ngIf="cart.items().length > 0">
+      <div class="cart-items">
+        <div class="cart-item" *ngFor="let line of cart.items()">
+          <img *ngIf="line.product.image" [src]="line.product.image" alt="" class="cart-item-thumb" loading="lazy" />
+          <div class="cart-item-info">
+            <strong>{{ line.product.name }}</strong>
+            <span>{{ line.product.priceLabel }}</span>
+          </div>
+          <div class="cart-item-controls">
+            <button type="button" (click)="cart.updateQuantity(line.product.id, line.quantity - 1)" aria-label="Kurangi">
+              −
+            </button>
+            <span>{{ line.quantity }}</span>
+            <button type="button" (click)="cart.updateQuantity(line.product.id, line.quantity + 1)" aria-label="Tambah">
+              +
+            </button>
+          </div>
+          <button
+            type="button"
+            class="cart-item-remove"
+            (click)="cart.removeItem(line.product.id)"
+            [attr.aria-label]="i18n.t('cart.remove')"
+          >
+            🗑
+          </button>
+        </div>
+      </div>
+
+      <div class="cart-summary">
+        <div class="cart-summary-total">
+          <span>{{ i18n.t('cart.total') }}</span>
+          <span>{{ formatRupiah(cart.subtotal()) }}</span>
+        </div>
+      </div>
+
+      <button type="button" class="cart-checkout-btn" (click)="checkout.emit()">
+        {{ i18n.t('cart.checkout') }}
+      </button>
+    </ng-container>
+  </aside>
+</div>

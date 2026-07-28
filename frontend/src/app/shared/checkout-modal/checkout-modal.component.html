@@ -1,0 +1,40 @@
+<div class="cart-drawer-overlay" [class.is-open]="open" (click)="handleClose()" *ngIf="open">
+  <div class="checkout-modal" (click)="$event.stopPropagation()" role="dialog" [attr.aria-label]="i18n.t('checkout.title')">
+    <div class="cart-drawer-header">
+      <h2>{{ result() ? i18n.t('checkout.success') : i18n.t('checkout.title') }}</h2>
+      <button type="button" class="cart-drawer-close" (click)="handleClose()" aria-label="Tutup">✕</button>
+    </div>
+
+    <form class="order-form" *ngIf="!result()" (ngSubmit)="handleSubmit()">
+      <input
+        [placeholder]="i18n.t('checkout.name')"
+        [(ngModel)]="form.customerName"
+        name="customerName"
+        required
+      />
+      <input [placeholder]="i18n.t('checkout.phone')" [(ngModel)]="form.phone" name="phone" required />
+      <textarea
+        [placeholder]="i18n.t('checkout.address')"
+        [(ngModel)]="form.address"
+        name="address"
+        rows="2"
+        required
+      ></textarea>
+      <textarea [placeholder]="i18n.t('checkout.notes')" [(ngModel)]="form.notes" name="notes" rows="2"></textarea>
+
+      <p class="form-feedback error" *ngIf="error()">{{ error() }}</p>
+
+      <button type="submit" class="cta-btn" [disabled]="submitting() || cart.items().length === 0">
+        {{ submitting() ? i18n.t('checkout.submitting') : i18n.t('checkout.submit') }}
+      </button>
+    </form>
+
+    <div class="checkout-success" *ngIf="result() as r">
+      <span class="checkout-success-icon" aria-hidden="true">✅</span>
+      <p class="form-feedback success">{{ i18n.t('checkout.success') }}</p>
+      <a [href]="r.whatsappLink" target="_blank" rel="noopener noreferrer" class="cta-btn">
+        {{ i18n.t('checkout.payViaWhatsapp') }}
+      </a>
+    </div>
+  </div>
+</div>

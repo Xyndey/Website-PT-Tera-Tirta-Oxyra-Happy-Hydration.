@@ -2,13 +2,10 @@
 
 Monorepo resmi untuk **OXYRA**, brand air minum premium (Mineral, Hexagonal
 Oxygen, Alkaline, dan Terahertz) yang melayani pengantaran harian di Batam,
-Indonesia. Repositori ini berisi **frontend** (React + Vite) dan **backend**
-(Node.js + Express) dalam satu monorepo berbasis npm workspaces.
+Indonesia.
 
-Proyek ini adalah hasil konversi dari prototipe statis `index_v0_11.html`
-menjadi aplikasi full-stack yang modular, teruji, dan siap dikembangkan lebih
-lanjut — dengan seluruh konten (produk, harga, testimoni, komunitas, laporan
-uji lab) dipertahankan persis sesuai versi aslinya.
+**Stack:** frontend **Angular 18** (standalone components + signals) dan
+backend **Node.js/Express** (in-memory, tanpa database eksternal).
 
 ---
 
@@ -16,32 +13,32 @@ uji lab) dipertahankan persis sesuai versi aslinya.
 
 ```
 oxyra/
-├── backend/                 # REST API (Express)
+├── backend/                        # REST API (Express, in-memory)
 │   ├── src/
-│   │   ├── config/          # Konfigurasi terpusat (env, brand, CORS, rate limit)
-│   │   ├── controllers/     # Logika request/response tiap domain
-│   │   ├── data/            # "Database" JSON in-memory + repositori order/contact
-│   │   ├── middleware/      # errorHandler, notFound, rateLimiter
-│   │   ├── routes/          # Definisi endpoint REST
-│   │   ├── utils/           # ApiError, asyncHandler, validators, whatsapp helper, logger
-│   │   ├── app.js           # Perakitan Express app
-│   │   └── server.js        # Entry point + graceful shutdown
-│   └── tests/               # Jest + Supertest
+│   │   ├── config/                 # Konfigurasi terpusat (env, brand, CORS, rate limit)
+│   │   ├── controllers/            # Logika request/response tiap domain
+│   │   ├── data/                   # "Database" JSON in-memory (produk, testimoni, dll)
+│   │   ├── middleware/              # errorHandler, notFound, rateLimiter
+│   │   ├── routes/                  # Definisi endpoint REST
+│   │   ├── utils/                   # ApiError, asyncHandler, whatsapp helper, logger
+│   │   ├── app.js                   # Perakitan Express app
+│   │   └── server.js                # Entry point + graceful shutdown
+│   └── tests/                       # Jest + Supertest
 │
-├── frontend/                 # Storefront (React + Vite)
-│   └── src/
-│       ├── api/              # Klien fetch ke backend + data cadangan lokal
-│       ├── hooks/            # useReveal, useScrollPhysics, useDropfieldCanvas
-│       ├── components/
-│       │   ├── common/       # Navbar, Instruments, SnapDots, Footer, Icon
-│       │   └── sections/     # Hot, Dry, Turn, Relief, Manifesto, WhyOxyra,
-│       │                      # Products, Club, Testimonials, LabReport,
-│       │                      # Delivery, Closing
-│       ├── styles/           # global.css (design tokens & animasi asli)
-│       └── assets/           # Aset gambar (logo kristal OXYRA, base64)
+├── frontend/                        # Storefront (Angular 18, standalone components)
+│   ├── public/images/                # Foto asli produk & toko
+│   └── src/app/
+│       ├── core/                     # Services: ApiService, CartService, ThemeService,
+│       │                              # I18nService, ToastService, ScrollPhysicsService
+│       ├── shared/                   # Navbar, Instruments, SnapDots, Footer,
+│       │                              # CartDrawer, CheckoutModal, ToastStack, Icon,
+│       │                              # SkeletonCard, RevealDirective
+│       └── sections/                 # Hot, Dry, Turn, Relief, Manifesto, WhyOxyra,
+│                                       # Products, Club, StoreVisit, Testimonials,
+│                                       # LabReport, Delivery, Closing
 │
-├── .github/workflows/ci.yml  # CI: lint, test backend, build frontend
-├── package.json               # Root workspace (backend + frontend)
+├── .github/workflows/ci.yml          # CI: test backend, build frontend
+├── package.json                       # Root workspace (backend + frontend)
 └── LICENSE
 ```
 
@@ -50,7 +47,7 @@ oxyra/
 ## 🚀 Menjalankan Secara Lokal
 
 ### Prasyarat
-- Node.js ≥ 18
+- Node.js ≥ 18.19
 - npm ≥ 9
 
 ### 1. Clone & install semua dependency sekaligus
@@ -60,18 +57,19 @@ cd oxyra
 npm install
 ```
 
-### 2. Siapkan file environment
+### 2. Siapkan file environment backend
 ```bash
 cp backend/.env.example backend/.env
-cp frontend/.env.example frontend/.env
 ```
+Frontend Angular mengatur URL API lewat `frontend/src/environments/environment.ts`
+(development) dan `environment.production.ts` (production) — bukan file `.env`.
 
 ### 3. Jalankan backend & frontend bersamaan
 ```bash
 npm run dev
 ```
 - Backend API berjalan di `http://localhost:4000`
-- Frontend (Vite dev server) berjalan di `http://localhost:5173`
+- Frontend (Angular dev server) berjalan di `http://localhost:4200`
 
 Atau jalankan satu per satu:
 ```bash
@@ -81,7 +79,7 @@ npm run dev:frontend
 
 ### 4. Build untuk produksi
 ```bash
-npm run build            # build frontend ke frontend/dist
+npm run build            # build frontend Angular ke frontend/dist/oxyra-frontend/browser
 npm start                 # jalankan backend (production mode)
 ```
 
@@ -90,19 +88,16 @@ npm start                 # jalankan backend (production mode)
 ## 🧪 Testing
 
 ```bash
-npm test                  # menjalankan seluruh test backend (Jest + Supertest)
+npm test                  # test backend (Jest + Supertest)
+cd frontend && npm test    # test frontend (Karma + Jasmine, bawaan Angular CLI)
 ```
-
-Test mencakup: health check, brand metadata, daftar & filter produk, alur
-pemesanan (create/list order beserta validasinya), testimoni, why-oxyra, club,
-laporan lab, dan formulir kontak/kemitraan.
 
 ---
 
 ## 🔌 Ringkasan Endpoint Backend
 
 | Method | Endpoint                  | Deskripsi                                             |
-|--------|----------------------------|--------------------------------------------------------|
+|--------|----------------------------|----------------------------------------------------------|
 | GET    | `/api/health`               | Status kesehatan server                                |
 | GET    | `/api/brand`                 | Metadata brand (nama, WhatsApp, Instagram, logo)        |
 | GET    | `/api/products`              | Daftar produk (`?category=`, `?q=` untuk filter/cari)   |
@@ -118,40 +113,48 @@ laporan lab, dan formulir kontak/kemitraan.
 | POST   | `/api/contact`               | Kirim pesan kemitraan/grosir/umum → link WhatsApp        |
 | GET    | `/api/contact`               | Daftar pesan kontak yang masuk                          |
 
-Setiap response mengikuti format konsisten:
-```json
-{ "success": true, "data": { } }
-```
-atau untuk error:
-```json
-{ "success": false, "error": { "message": "...", "code": 400 } }
-```
+Format response konsisten: `{ "success": true, "data": { } }` atau
+`{ "success": false, "error": { "message": "...", "code": 400 } }`.
 
 ---
 
-## 🖥️ Ringkasan Frontend
+## 🖥️ Ringkasan Frontend (Angular)
 
-- **Tanpa backend pun tetap tampil benar** — setiap section melakukan fetch
-  ke API, tetapi otomatis memakai data cadangan lokal (`src/api/fallbackData.js`)
-  yang identik dengan data backend jika request gagal (mis. backend belum
-  dijalankan).
-- Seluruh animasi asli dipertahankan: reveal-on-scroll (`useReveal`), transisi
-  suhu/warna latar saat scroll (`useScrollPhysics`), dan medan tetesan air yang
-  mengkristal menjadi logo heksagonal OXYRA di section "Relief"
-  (`useDropfieldCanvas`).
-- Tombol pemesanan tiap produk menghasilkan tautan `wa.me` yang sudah terisi
-  pesan otomatis, persis seperti perilaku prototipe asli.
+- **Standalone components** (tanpa NgModule) + **Angular Signals** untuk
+  state management (`CartService`, `ThemeService`, `I18nService`,
+  `ToastService`, `ScrollPhysicsService`).
+- **Tanpa backend pun tetap tampil benar** — `ApiService` otomatis memakai
+  data cadangan lokal (`core/fallback-data.ts`, di-generate identik dengan
+  `backend/src/data/*.json`) jika request API gagal.
+- **Keranjang belanja & checkout** — tambah produk ke keranjang, atur
+  jumlah, checkout dengan form (nama/HP/alamat/catatan), lalu dapat link
+  WhatsApp konfirmasi otomatis.
+- **Dark mode** (🌙/☀️) dan **dua bahasa ID/EN** (🇮🇩/🇬🇧), keduanya
+  persisten via `localStorage`.
+- **Menu mobile (hamburger)**, **skeleton loader** saat memuat data, dan
+  **toast notification** saat produk ditambah ke keranjang.
+- Seluruh animasi asli dipertahankan: reveal-on-scroll (`RevealDirective`),
+  transisi suhu/warna latar saat scroll (`ScrollPhysicsService`), dan
+  medan tetesan air yang mengkristal menjadi logo heksagonal OXYRA di
+  section "Relief" (`DropfieldAnimation`).
+- **Foto asli** produk (galon Aqua/OXYRA/Sanford, botol OXYRA) dan foto
+  gerai toko sudah terintegrasi di `public/images/`.
 
 ---
 
 ## 📦 Deploy
 
-- **Backend**: dapat di-deploy ke Render, Railway, Fly.io, atau VPS mana pun
-  yang mendukung Node.js — cukup set environment variable dari
-  `backend/.env.example` dan jalankan `npm start`.
-- **Frontend**: `npm run build` menghasilkan folder statis `frontend/dist`
-  yang bisa di-deploy ke Vercel, Netlify, Cloudflare Pages, atau static
-  hosting apa pun. Jangan lupa set `VITE_API_URL` ke URL backend produksi.
+- **Backend**: deploy ke Render, Railway, Fly.io, atau VPS Node.js apa
+  pun — set environment variable dari `backend/.env.example`, lalu
+  `npm start`.
+- **Frontend**: `npm run build` (di folder `frontend/`) menghasilkan
+  folder statis `frontend/dist/oxyra-frontend/browser` yang bisa
+  di-deploy ke Vercel, Netlify, Cloudflare Pages, atau static hosting apa
+  pun. Set `environment.production.ts` ke URL backend produksi sebelum
+  build.
+- **Docker**: `frontend/Dockerfile` (multi-stage: build Angular → serve
+  dengan Nginx) dan `backend/` bisa dijalankan sebagai container Node.js
+  standar.
 
 ---
 
