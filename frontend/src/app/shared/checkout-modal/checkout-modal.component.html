@@ -1,4 +1,10 @@
-<div class="cart-drawer-overlay" [class.is-open]="open" (click)="handleClose()" *ngIf="open">
+<div
+  class="cart-drawer-overlay"
+  [class.is-open]="open"
+  (click)="handleClose()"
+  [attr.aria-hidden]="!open"
+  [attr.inert]="!open ? '' : null"
+>
   <div class="checkout-modal" (click)="$event.stopPropagation()" role="dialog" [attr.aria-label]="i18n.t('checkout.title')">
     <div class="cart-drawer-header">
       <h2>{{ result() ? i18n.t('checkout.success') : i18n.t('checkout.title') }}</h2>

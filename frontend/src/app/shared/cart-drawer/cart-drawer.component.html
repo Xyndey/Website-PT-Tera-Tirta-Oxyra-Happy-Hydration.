@@ -3,6 +3,7 @@
   [class.is-open]="open"
   (click)="closeDrawer.emit()"
   [attr.aria-hidden]="!open"
+  [attr.inert]="!open ? '' : null"
 >
   <aside class="cart-drawer" (click)="$event.stopPropagation()" role="dialog" [attr.aria-label]="i18n.t('cart.title')">
     <div class="cart-drawer-header">
