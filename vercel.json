@@ -1,9 +1,10 @@
 {
+  "buildCommand": "cd frontend && npm install && npx ng build",
+  "outputDirectory": "frontend/dist/oxyra/browser",
   "services": {
     "frontend": {
       "root": "frontend",
-      "framework": "angular",
-      "buildCommand": "npx ng build"
+      "framework": "angular"
     },
     "backend": {
       "root": "backend",
