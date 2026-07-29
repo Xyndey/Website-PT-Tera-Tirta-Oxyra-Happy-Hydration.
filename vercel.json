@@ -3,12 +3,10 @@
   "outputDirectory": "frontend/dist/oxyra/browser",
   "services": {
     "frontend": {
-      "name": "oxyra-frontend-app",
       "root": "frontend",
       "framework": "angular"
     },
     "backend": {
-      "name": "oxyra-backend-api",
       "root": "backend",
       "entrypoint": "index.js"
     }
